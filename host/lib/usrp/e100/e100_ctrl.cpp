@@ -290,9 +290,11 @@ struct e100_simpl_msb : managed_send_buffer
 
     void release(void)
     {
+        const size_t max_words32 = 8; //.LAST_ADDR(10'h00f)) resp_fifo_to_gpmc
+
         //load the data struct
         data.offset = 0;
-        data.count = size()/4+1/*1 for header offset*/;
+        data.count = max_words32;
 
         //call the ioctl
         ctrl->ioctl(USRP_E_WRITE_CTL32, &data);
@@ -300,7 +302,7 @@ struct e100_simpl_msb : managed_send_buffer
 
     sptr get_new(void)
     {
-        return make(this, data.buf+1, sizeof(data.buf)-4);
+        return make(this, data.buf, sizeof(data.buf));
     }
 };
 
