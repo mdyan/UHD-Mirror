@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.40 (w)1999-2012 BSI
+[*] Mon Mar 18 21:34:09 2013
+[*]
+[dumpfile] "/home/mbaratva/workspace/UHD-Mirror/fpga/usrp2/autoc/n_delay.vcd"
+[dumpfile_mtime] "Mon Mar 18 21:32:57 2013"
+[dumpfile_size] 429820
+[savefile] "/home/mbaratva/workspace/UHD-Mirror/fpga/usrp2/autoc/n_delay_wave.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -601 -326
+*-3.000000 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] n_delay_tb.
+[sst_width] 200
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 155
+@201
+-testbench
+@28
+n_delay_tb.clk
+@22
+n_delay_tb.in[17:0]
+@200
+-n_delay
+@28
+n_delay_tb.nb.clk
+@22
+n_delay_tb.nb.din[17:0]
+n_delay_tb.nb.dout[17:0]
+n_delay_tb.nb.k[31:0]
+@28
+n_delay_tb.nb.outputting
+@22
+n_delay_tb.nb.rd_ptr[31:0]
+n_delay_tb.nb.wr_ptr[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
