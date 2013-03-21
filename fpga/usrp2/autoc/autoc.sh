@@ -1,6 +1,7 @@
-iverilog -Wall -o n_delay.vvp \
-n_delay_tb.v n_delay.v && \
--y ../models \
+iverilog -Wall -o autoc.vvp \
+autoc_tb.v autoc.v \
+-y . \
+-y ../models && \
 #-y ../control_lib \
-vvp n_delay.vvp
-#gtkwave power_trig_my.vcd
+vvp autoc.vvp
+#gtkwave autoc.vcd
