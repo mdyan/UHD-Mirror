@@ -43,8 +43,6 @@ module autoc
   wire [15:0] i_delayed;
   wire [15:0] q_delayed;
   
-  wire delay_line_output;
-  
   autoc_delay_mult #( .WIDTH(16), .DELAY(32) ) mult_delay_ii
     (.clk(clk), .sample_in(i_curr), .delay_mult_out();
      ( .clk(clk), .din(i_curr), .dout(i_delayed), .outputting(delay_line_output));

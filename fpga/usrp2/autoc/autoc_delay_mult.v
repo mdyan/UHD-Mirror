@@ -6,7 +6,7 @@ module autoc_delay_mult
   (
     input clk,
     input [WIDTH-1:0] sample_in,
-    output [(WIDTH*2):2] delay_mult_out,
+    output [(WIDTH*2)-1:0] delay_mult_out,
     output strobe
   );
   
@@ -31,7 +31,7 @@ module autoc_delay_mult
   always @(posedge clk)
     mult_strobe <= delay_line_enabled;
     
-  assign delay_mult_out = mult_out [35:2];
+  assign delay_mult_out = mult_out [35:4];
   assign strobe = mult_strobe;
    
   
