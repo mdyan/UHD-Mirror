@@ -14,11 +14,11 @@ module autoc_tb();
   
   autoc #(.WIDTH(24),.DELAY(32)) autocorrelate
   ( .clk(clk), .ddc_out_enable(), .ddc_out_sample(fake_data), 
-    .ddc_out_strobe(1), .si(), .sq(), .outputting()
+    .ddc_out_strobe(1), .enable(1), .si(), .sq(), .outputting()
   );
   
   always @(posedge clk)
-       fake_data <= fake_data + 32'h00010001;
+       fake_data <= fake_data + 32'h00010002;
        
   initial
     #100000 $finish;

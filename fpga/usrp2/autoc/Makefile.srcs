@@ -1,0 +1,12 @@
+#
+# HCLAB 2013
+#
+
+##################################################
+# AUTOC Sources
+##################################################
+AUTOC_SRCS = $(abspath $(addprefix $(BASE_DIR)/../autoc/, \
+autoc.v \
+autoc_delay_mult.v \
+n_delay.v \
+))

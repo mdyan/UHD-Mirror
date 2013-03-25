@@ -229,6 +229,14 @@ module u1plus_core
           .rx_fe_i(rx_fe_i),.rx_fe_q(rx_fe_q),
           .sample(sample_rx), .run(run_rx_n[dspno]), .strobe(strobe_rx),
           .debug() );
+          
+        wire [42:0] blah1;
+        wire [42:0] blah2;
+        wire outputting;
+        
+        autoc #(.WIDTH(24),.DELAY(32)) autoc
+          ( .clk(clk), .ddc_out_enable(1'b1), .ddc_out_sample(sample_rx), 
+            .ddc_out_strobe(strobe_rx), .enable(1'b1), .si(blah1), .sq(blah2), .outputting(outputting));
 
         vita_rx_chain #(.BASE(SR_RX_CTRL0+dspno*32), .UNIT(dspno), .FIFOSIZE(DSP_RX_FIFOSIZE), .PROT_ENG_FLAGS(0), .DSP_NUMBER(dspno)) vita_rx_chain
          (.clk(clk),.reset(reset),

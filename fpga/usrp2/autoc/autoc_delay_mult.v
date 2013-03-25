@@ -4,8 +4,9 @@ module autoc_delay_mult
     parameter DELAY=32  
   )
   (
-    input clk,
+    input clk, input enable, 
     input [WIDTH-1:0] sample_in,
+    input [WIDTH-1:0] sample_in_delay,
     output [(WIDTH*2)-1:0] delay_mult_out,
     output strobe
   );
@@ -23,10 +24,10 @@ module autoc_delay_mult
   reg mult_strobe;
   
   n_delay #( .WIDTH(WIDTH), .DELAY(DELAY) ) delay
-    ( .clk(clk), .din(sample_in), .dout(delayed_sample), .outputting(delay_line_enabled));
+    ( .clk(clk), .enable(enable), .din(sample_in_delay), .dout(delayed_sample), .outputting(delay_line_enabled));
     
   MULT18X18S ii_mult(.P(mult_out), .A(pad(delayed_sample)), .B(pad(sample_in)),
-    .C(clk), .CE(delay_line_enabled), .R(0));
+    .C(clk), .CE(delay_line_enabled), .R(1'b0));
     
   always @(posedge clk)
     mult_strobe <= delay_line_enabled;

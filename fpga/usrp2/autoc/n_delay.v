@@ -1,7 +1,7 @@
 module n_delay
   #( parameter WIDTH=8, 
      parameter DELAY=8 )
-   ( input clk, 
+   ( input clk, input enable,
      input wire [WIDTH-1:0] din, 
      output reg [WIDTH-1:0] dout,
      output reg outputting);
@@ -15,13 +15,14 @@ module n_delay
    assign rd_ptr = (wr_ptr + 1) % DELAY;
    
    always @ (posedge clk)
-     begin
-       circ_buf[wr_ptr] <= din;
-       dout <= circ_buf[rd_ptr];
-       wr_ptr <= (wr_ptr + 1) % DELAY;
-       if (rd_ptr == 0)
-         outputting <= 1;
-     end
+     if(enable)
+       begin
+         circ_buf[wr_ptr] <= din;
+         dout <= circ_buf[rd_ptr];
+         wr_ptr <= (wr_ptr + 1) % DELAY;
+         if (rd_ptr == 0)
+           outputting <= 1;
+       end
    
    integer k;
    initial
