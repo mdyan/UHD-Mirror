@@ -43,8 +43,8 @@ module autoc
   wire go;
   assign go = s1&s2&s3&s4;
   
-  //~ wire [15:0] i_delayed;
-  //~ wire [15:0] q_delayed;
+  ////~ wire [15:0] i_delayed;
+  ////~ wire [15:0] q_delayed;
   
   autoc_delay_mult #( .WIDTH(16), .DELAY(32) ) mult_delay_ii
     (.clk(clk), .enable(enable), .sample_in(i_curr), .sample_in_delay(i_curr), .delay_mult_out(ii_mult_out), .strobe(s1));
